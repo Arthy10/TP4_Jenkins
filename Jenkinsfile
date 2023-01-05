@@ -12,7 +12,7 @@ pipeline {
                 echo 'python -m unittest'
             }
         }
-        stage('deploying from github')
+        stage('deploying from github') {
             steps {
                 echo 'docker build -t github-jenkins .'
                 echo 'docker run -d -p 5000:5000 github-jenkins'
