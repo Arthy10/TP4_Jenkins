@@ -15,7 +15,7 @@ pipeline {
         stage('deploying from github') {
             steps {
                 echo 'docker build -t docker-image .'
-                echo 'docker run -d 5000:5000 docker-image'
+                echo 'docker run -d -p 5000:5000 docker-image'
             }
         }
     }
