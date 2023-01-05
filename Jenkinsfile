@@ -4,15 +4,23 @@ pipeline {
     stages {
         stage('build from github') {
             steps {
-                echo 'fetch code'
-                echo 'build code'
+                echo 'pip install -r requirements.txt'
             }
         }
         stage('test from github') {
             steps {
-                echo 'running test1'
-                echo 'running test2'
+                echo 'python -m unittest'
             }
         }
+        stage('deploying from github')
+            steps {
+                echo 'docker build -t github-jenkins .'
+                echo 'docker run -d -p 5000:5000 github-jenkins'
+            }
+        }
+    }
+
+    triggers {
+        githubPush()
     }
 }
