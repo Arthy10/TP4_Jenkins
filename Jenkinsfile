@@ -4,25 +4,15 @@ pipeline {
     stages {
         stage('build from github') {
             steps {
-                echo 'pip install -r requirements.txt'
-                
+                echo 'fetch code'
+                echo 'build code'
             }
         }
         stage('test from github') {
             steps {
-                echo 'python -m unitest'
-               
+                echo 'running test1'
+                echo 'running test2'
             }
         }
-        stage('deploying from github')
-            steps {
-                echo 'docker build -t <your_image_name> .'
-                echo 'docker run -d -p 5000:5000 <your_image_name>'
-            }    
-        }
-    }
-    
-    triggers {
-        githubPush()
     }
 }
